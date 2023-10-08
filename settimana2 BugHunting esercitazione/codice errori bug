@@ -1,0 +1,84 @@
+
+#include <stdio.h>
+
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+
+int main ()
+
+{
+    char scelta = {'\0'};//la dichiarazione per carattere nullo è '\0' senza le graffe
+    menu ();
+    scanf ("%d", &scelta);//al posto di %d ci va %c in quanto il tipo è char e non un int
+
+    switch (scelta)
+    {
+
+        case 'A':
+            moltiplica();
+            break;
+
+        case 'B':
+            dividi();
+            break;
+
+        case 'C':
+            ins_string();
+            break;
+    }
+
+    return 0;
+
+}
+
+void menu() {
+    printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+    printf ("Come posso aiutarti?\n");
+    printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\n");
+
+}
+
+
+
+void moltiplica ()
+{
+    short int  a,b = 0;//non è necessario dichiarare b=0 in quanto prenderemo come input un qualsiasi numero
+    printf ("Inserisci i due numeri da moltiplicare:");
+    scanf ("%f", &a);//a è un short int percui useremo il %h al posto del %f che serve per i float
+    scanf ("%d", &b);//b è un short int percui useremo il %h al posto del %f che serve per i float
+
+    short int prodotto = a * b;
+
+    //a e b sono short int percui useremo il %h al posto del %d che serve per gli int
+    printf ("Il prodotto tra %d e %d e': %d", a,b,prodotto);
+}
+
+
+void dividi ()
+{
+    int  a,b = 0;//non è necessario dichiarare b=0 in quanto prenderemo come input un qualsiasi numero
+    printf ("Inserisci il numeratore:");
+    scanf ("%d", &a);
+    printf ("Inserisci il denumeratore:");
+    scanf ("%d", &b);
+
+    int divisione = a % b;// la divisione la facciamo con / poichè % torna un resto
+
+    printf ("La divisione tra %d e %d e': %d", a,b,divisione);
+}
+
+
+
+
+
+void ins_string ()
+{
+    char stringa[10];
+    printf ("Inserisci la stringa:");
+    scanf ("%s", &stringa);//non usiamo & prima di una stringa per leggere la medesima
+    //possiamo aggiungere una dimensione a %s del tipo %9s per evitare un uso inutile della memoria
+}
+*/
