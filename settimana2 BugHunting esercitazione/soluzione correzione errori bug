@@ -1,0 +1,96 @@
+
+#include <stdio.h>
+
+//soluzione giusta
+void menu() {
+    printf("Benvenuto, sono un assistente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+    printf("Come posso aiutarti?\n");
+    printf("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\nD >> Exit\n");
+
+}
+
+void dividi() {
+    int a, b;
+    printf("Inserisci il numeratore:");
+    if (scanf("%d", &a) != 1) {
+        printf("Input non valido. Uscita.\n");
+        return;
+    }
+
+    printf("Inserisci il denominatore:");
+    if (scanf("%d", &b) != 1 || b == 0) {
+        printf("Input non valido. Uscita.\n");
+        return;
+    }
+
+    int divisione = a / b;
+
+    printf("La divisione tra %d e %d e': %d\n", a, b, divisione);
+}
+
+void ins_string() {
+    char stringa[10];
+    printf("Inserisci la stringa (massimo 9 caratteri): ");
+    if (scanf("%9s", stringa) != 1) {
+        printf("Input non valido. Uscita.\n");
+        return;
+    }
+
+    printf("La stringa inserita e': %s\n", stringa);
+
+}
+void moltiplica() {
+    short int a, b;
+    printf("Inserisci i due numeri da moltiplicare:");
+    if (scanf("%hd %hd", &a, &b) != 2) {
+
+        printf("Input non valido. Uscita.\n");
+        return;
+    }
+
+    short int prodotto = a * b;
+
+    printf("Il prodotto tra %hd e %hd e': %hd\n", a, b, prodotto);
+
+
+}
+
+
+int main() {
+
+    char scelta = '\0';
+
+    do {
+
+        menu();//chiamo la funione di menu
+        scanf(" %c", &scelta);//prendo l'input dell'utente
+
+        switch (scelta) {//funzione a seconda della scelta
+            case 'A'://il doppio case per la stessa lettera evita errori case sensitive
+            case 'a':
+                moltiplica();
+                break;
+
+            case 'B'://il doppio case per la stessa lettera evita errori case sensitive
+            case 'b':
+                dividi();
+                break;
+
+            case 'C'://il doppio case per la stessa lettera evita errori case sensitive
+            case 'c':
+                ins_string();
+                break;
+
+            case 'D'://il doppio case per la stessa lettera evita errori case sensitive
+            case 'd':
+                printf("Hai scelto di uscire. Arrivederci.\n");
+                break;
+            default:
+                printf("Input non valido. Uscita.\n");
+        }
+
+    } while (scelta!='D' && scelta!='d');//chiusura del loop
+
+
+    return 0;
+}
